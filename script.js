@@ -18,4 +18,11 @@ const bikes = [
     },
 ]
 
-//
+let minWeight = 0;
+
+for (let i = 0; i <= bikes.length - 1; i++) {
+    if (bikes[i].peso < bikes[minWeight].peso) {
+        minWeight = i;
+    }
+}
+console.log(bikes[minWeight].peso);
