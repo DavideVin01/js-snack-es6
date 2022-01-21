@@ -18,11 +18,13 @@ const bikes = [
     },
 ]
 
-let minWeight = 0;
+let minWeight = bikes[0];
 
-for (let i = 0; i <= bikes.length - 1; i++) {
-    if (bikes[i].peso < bikes[minWeight].peso) {
-        minWeight = i;
+for (let i = 0; i < bikes.length; i++) {
+    const currentBike = bikes[i];
+    const { peso } = currentBike;
+    if (peso < minWeight.peso) {
+        minWeight = currentBike;
     }
 }
-console.log(bikes[minWeight].peso);
+console.log('La bici più leggera è ', minWeight.peso);

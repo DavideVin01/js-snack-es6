@@ -26,3 +26,14 @@ for (let i = 0; i < squadre.length; i++) {
 }
 
 console.table(squadre);
+
+const secondArray = [];
+
+for (let i = 0; i < squadre.length; i++) {
+    const currentTeam = squadre[i];
+    const { nome, falli } = currentTeam;
+    const newTeam = { nome, falli };
+    secondArray.push(newTeam);
+}
+
+console.table(secondArray);
