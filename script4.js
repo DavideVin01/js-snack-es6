@@ -5,6 +5,18 @@
 // 2. Dobbiamo creare una lista di tutti gli studenti che hanno un totale di voti superiore a 70
 // 3. Dobbiamo creare una lista di tutti gli studenti che hanno un totale di voti superiore a 70 e id superiore a 120
 
+const toCapitalize = (word) => {
+    const firstLetter = word.charAt(0).toUpperCase();
+    const remainingLetters = word.substring(1).toLowerCase();
+    return firstLetter + remainingLetters;
+}
+
+const capitalizeAll = (word) => {
+    const words = word.split(' ');
+    const capitalizedWords = words.map(item => capitalizeAll(item));
+    return capitalizedWords.join(' ');
+}
+
 const studenti = [
     {
         id: 125,
@@ -33,19 +45,12 @@ const studenti = [
     },
 ]
 
-studenti.forEach((studente) => {
-    const {nome} = studente;
-    const firstLetter = nome.charAt(0).toUpperCase();
-    const remainingLetters = nome.substring(1).toLowerCase();
-    const fullWord = firstLetter + remainingLetters;
-console.table(fullWord);
-});
+const targheStudenti = studenti.map((studente) => toCapitalize(studente.nome));
 
-const up70 = [];
+// const up70 = studenti.filter((studente) => studente.sommaVotiEsame > 70);
 
-studenti.filter((studente) => {
-    if (studente.sommaVotiEsame >= 70 && studente.id >= 120){
-        up70.push(studente);
-    }
-});
-console.log(up70);
+const up70id120 = studenti.filter((studente) => studente.sommaVotiEsame > 70 && studente.id > 120);
+
+console.log(targheStudenti);
+// console.log(up70);
+console.log(up70id120);
